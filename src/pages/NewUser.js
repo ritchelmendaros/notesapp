@@ -27,8 +27,6 @@ const Register = () => {
       );
 
       setUser(response.data);
-
-      // Redirect to GetUserNotes with the userId
       navigate(`/getusernotes/${response.data.id}`);
     } catch (error) {
       console.error('Error registering user:', error);

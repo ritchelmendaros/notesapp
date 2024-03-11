@@ -30,11 +30,12 @@ const GetUserNotes = () => {
 
   return (
     <div style={styles.container}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: '#7986C3' }}>
         <Toolbar>
-          <Typography variant="h6">My Notes</Typography>
+            <Typography variant="h6">My Notes</Typography>
         </Toolbar>
       </AppBar>
+
 
       <Link to={`/newnote/${userId}`} style={{ textDecoration: 'none' }}>
         <button style={styles.addButton}>
@@ -62,9 +63,11 @@ const GetUserNotes = () => {
 const styles = {
   container: {
     textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif',
   },
   addButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#7986C3',
+    fontFamily: 'Roboto, sans-serif',
     color: 'white',
     padding: '10px',
     border: 'none',
@@ -73,21 +76,27 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     marginTop: '10px',
+    fontSize: '18px',
   },
   notesContainer: {
-    display: 'flex',
+    fontFamily: 'Roboto, sans-serif',
     flexDirection: 'column',
     alignItems: 'center',
   },
   noteBox: {
-    border: '1px solid #ccc',
+    fontFamily: 'Roboto, sans-serif',
+    border: '3px solid #7986C3',
     borderRadius: '8px',
     padding: '10px',
     margin: '10px',
     textAlign: 'center',
-    maxWidth: '400px',
+    color: '#7986C3',
+    fontWeight: 'bold',
+    fontSize: '20px',
+    Width: '100px',
   },
   date: {
+    fontFamily: 'Roboto, sans-serif',
     color: '#888',
     fontSize: '14px',
   },
