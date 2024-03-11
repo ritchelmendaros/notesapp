@@ -8,9 +8,9 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<NotesPosted />} />
-      <Route path="/newuser" element={<Register />} />
-      <Route path="/newnote" element={<NewNote />} />
+      <Route path="/" element={<Register />} />
+      <Route path="/newnote/:userId" element={<NewNote />} />
+      <Route path="/getusernotes/:userId" element={<GetUserNotes />} />
     </Routes>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const NewNote = () => {
-  const [userId, setUserId] = useState('');
+  const { userId } = useParams();
   const [note, setNote] = useState('');
   const [createdNote, setCreatedNote] = useState(null);
+  const navigate = useNavigate();
 
   const handleCreateNote = async () => {
     try {
@@ -23,6 +25,9 @@ const NewNote = () => {
       );
 
       setCreatedNote(response.data);
+
+      // Navigate back to GetUserNotes after creating a new note
+      navigate(`/getusernotes/${userId}`);
     } catch (error) {
       console.error('Error creating new note:', error);
     }
@@ -33,10 +38,6 @@ const NewNote = () => {
       <h2>Create New Note</h2>
       <form>
         <label>
-          User ID:
-          <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} />
-        </label>
-        <label>
           Note:
           <textarea value={note} onChange={(e) => setNote(e.target.value)} />
         </label>
@@ -44,15 +45,6 @@ const NewNote = () => {
           Create Note
         </button>
       </form>
-
-      {createdNote && (
-        <div>
-          <h3>New Note Created</h3>
-          <p>ID: {createdNote.id}</p>
-          <p>User ID: {createdNote.user_id}</p>
-          <p>Note: {createdNote.note}</p>
-        </div>
-      )}
     </div>
   );
 };
